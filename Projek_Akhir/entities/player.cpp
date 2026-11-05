@@ -2,6 +2,9 @@
 #include "core/config.h"
 #include "core/utils.h"
 #include "world/collision.h"
+#include "config.h"
+#include "utils.h"
+#include "collision.h"
 #include "data/weapons.h"
 #include "raymath.h"
 #include <math.h>

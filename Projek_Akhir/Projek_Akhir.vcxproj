@@ -77,10 +77,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\world;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\core;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\include;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>raylib.lib;winmm.lib;gdi32.lib;opengl32.lib;user32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\lib</AdditionalLibraryDirectories>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -95,10 +99,14 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\world;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\core;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\include;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>raylib.lib;winmm.lib;gdi32.lib;opengl32.lib;user32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\lib</AdditionalLibraryDirectories>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -111,15 +119,16 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Pemgim\Projek_Akhir\Projek_Akhir;D:\raylib-6.2_win64_msvc16\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\world;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\core;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\include;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir</AdditionalIncludeDirectories>
       <CompileAs>Default</CompileAs>
       <ShowIncludes>true</ShowIncludes>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\raylib-6.2_win64_msvc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>raylib.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raylib.lib;winmm.lib;gdi32.lib;opengl32.lib;user32.lib;shell32.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -134,10 +143,14 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\world;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir\core;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\include;C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\Projek-Pemgim-Akhir\Projek_Akhir</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>raylib.lib;winmm.lib;gdi32.lib;opengl32.lib;user32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Joshua\Semester 5\Pemrograman Game\Project Akhir\raylib-6.2_win64_msvc16\lib</AdditionalLibraryDirectories>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -148,6 +161,7 @@
     <ClCompile Include="entities\combat.cpp" />
     <ClCompile Include="entities\enemies.cpp" />
     <ClCompile Include="entities\player.cpp" />
+    <ClCompile Include="intro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="systems\camera.cpp" />
     <ClCompile Include="systems\input.cpp" />
@@ -164,6 +178,7 @@
     <ClInclude Include="entities\enemy.h" />
     <ClInclude Include="entities\npc.h" />
     <ClInclude Include="entities\player.h" />
+    <ClInclude Include="intro.h" />
     <ClInclude Include="systems\camera.h" />
     <ClInclude Include="systems\input.h" />
     <ClInclude Include="systems\render.h" />

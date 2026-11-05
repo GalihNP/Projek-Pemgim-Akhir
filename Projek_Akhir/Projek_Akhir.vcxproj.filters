@@ -28,6 +28,9 @@
     <Filter Include="Source Files\world">
       <UniqueIdentifier>{5dfb166d-adeb-4c89-8f37-5fd0f22d09aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="intro">
+      <UniqueIdentifier>{24284f02-5e62-4f30-baa9-15ab3b5ddf9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data\weapons.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="intro.cpp">
+      <Filter>intro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="world\world.h">
       <Filter>Source Files\world</Filter>
+    </ClInclude>
+    <ClInclude Include="intro.h">
+      <Filter>intro</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

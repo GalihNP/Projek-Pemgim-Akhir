@@ -1,4 +1,3 @@
-// main.cpp
 #include "raylib.h"
 #include "core/types.h"
 #include "core/config.h"
@@ -9,15 +8,23 @@
 #include "entities/player.h"
 #include "entities/enemy.h"
 #include "entities/combat.h"
+#include "intro.h"
 
 int main(void) {
     InitWindow(SCREEN_W, SCREEN_H, "Game");
     SetTargetFPS(60);
 
+    // 1. Jalankan Intro Percakapan Terlebih Dahulu
+    bool introSuccess = RunIntroDialogue();
+    if (!introSuccess) {
+        CloseWindow();
+        return 0;
+    }
+
+    // 2. Masuk ke Inti Permainan Utama
     GameState state = { 0 };
     WorldInit(&state.world);
 
-    // Perbaikan: Tambahkan posisi awal
     PlayerInit(&state.player, Vector2{ ROOM_W * 0.5f, ROOM_H * 0.5f });
     EnemyInitAll(state.enemies, MAX_ENEMIES, state.player.position);
     CameraInit(&state.cam, state.player.position);
@@ -31,7 +38,6 @@ int main(void) {
 
         PlayerUpdate(&state.player, &input, dt);
 
-        // Logika serangan dipindah ke sini
         if (!state.player.swingHitDone && state.player.swingTime > 0 && state.player.swingTime <= SWING_DURATION * 0.5f) {
             DoAttack(&state.player, state.enemies, MAX_ENEMIES);
             state.player.swingHitDone = true;
