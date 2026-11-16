@@ -36,6 +36,15 @@
     <ClCompile Include="data\weapons.cpp">
       <Filter>Source Files\data</Filter>
     </ClCompile>
+    <ClCompile Include="entities\npc.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\pause_menu.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\save.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
     <ClCompile Include="entities\enemies.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
@@ -83,11 +92,14 @@
     <ClInclude Include="data\weapons.h">
       <Filter>Source Files\data</Filter>
     </ClInclude>
-    <ClInclude Include="entities\combat.h">
-      <Filter>Source Files\entities</Filter>
-    </ClInclude>
     <ClInclude Include="entities\enemy.h">
       <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\pause_menu.h">
+      <Filter>Source Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\save.h">
+      <Filter>Source Files\systems</Filter>
     </ClInclude>
     <ClInclude Include="entities\npc.h">
       <Filter>Source Files\entities</Filter>
@@ -115,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="intro.h">
       <Filter>intro</Filter>
+    </ClInclude>
+    <ClInclude Include="entities\combat.h">
+      <Filter>Source Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

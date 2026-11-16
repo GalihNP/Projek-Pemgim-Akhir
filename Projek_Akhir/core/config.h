@@ -24,3 +24,17 @@
 #define CAM_LOOKAHEAD   50.0f
 
 #define SWING_DURATION  0.18f
+
+// --- NPC & dialog ---
+#define MAX_NPCS            16
+#define NPC_MAX_LINES       6
+#define NPC_RADIUS          16.0f
+#define NPC_TALK_RANGE      45.0f    // jarak tepi player <-> tepi NPC agar bisa diajak bicara
+#define DIALOGUE_CHARS_PER_SEC 45.0f
+
+// --- Spawn musuh per ruangan ---
+#define ENEMY_SPAWN_DELAY     0.7f   // durasi animasi muncul (musuh belum bisa bergerak/diserang)
+#define ENEMY_SPAWN_MIN_DIST  320.0f // jarak minimal spawn dari player
+
+// --- Save game ---
+#define SAVE_FILE_PATH  "savegame.dat"

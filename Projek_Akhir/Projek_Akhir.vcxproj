@@ -119,7 +119,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)world;$(ProjectDir)core;$(ProjectDir)..\..\raylib-6.2_win64_msvc16\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)world;$(ProjectDir)core;$(ProjectDir)raylib-6.2_win64_msvc16\include;$(ProjectDir)</AdditionalIncludeDirectories>
       <CompileAs>Default</CompileAs>
       <ShowIncludes>true</ShowIncludes>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -127,7 +127,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\raylib-6.2_win64_msvc16\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)raylib-6.2_win64_msvc16\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>raylib.lib;winmm.lib;gdi32.lib;opengl32.lib;user32.lib;shell32.lib</AdditionalDependencies>
     </Link>
     <Manifest>
@@ -160,12 +160,15 @@
     <ClCompile Include="data\weapons.cpp" />
     <ClCompile Include="entities\combat.cpp" />
     <ClCompile Include="entities\enemies.cpp" />
+    <ClCompile Include="entities\npc.cpp" />
     <ClCompile Include="entities\player.cpp" />
     <ClCompile Include="intro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="systems\camera.cpp" />
     <ClCompile Include="systems\input.cpp" />
+    <ClCompile Include="systems\pause_menu.cpp" />
     <ClCompile Include="systems\render.cpp" />
+    <ClCompile Include="systems\save.cpp" />
     <ClCompile Include="world\collision.cpp" />
     <ClCompile Include="world\world.cpp" />
     <ClCompile Include="world\background.cpp" />
@@ -182,7 +185,9 @@
     <ClInclude Include="intro.h" />
     <ClInclude Include="systems\camera.h" />
     <ClInclude Include="systems\input.h" />
+    <ClInclude Include="systems\pause_menu.h" />
     <ClInclude Include="systems\render.h" />
+    <ClInclude Include="systems\save.h" />
     <ClInclude Include="world\collision.h" />
     <ClInclude Include="world\world.h" />
     <ClInclude Include="world\background.h" />

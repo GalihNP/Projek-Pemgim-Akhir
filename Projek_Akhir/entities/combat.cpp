@@ -21,7 +21,7 @@ void DoAttack(Player* p, Enemy* enemies, int enemyCount) {
 
     for (int i = 0; i < enemyCount; i++) {
         Enemy* e = &enemies[i];
-        if (!e->alive) continue;
+        if (!e->alive || e->spawnTimer > 0) continue;   // musuh yang sedang muncul kebal
         if (!InArc(p->position, p->facing, w->range, w->arc, e->position, e->radius))
             continue;
 

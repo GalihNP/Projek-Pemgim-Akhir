@@ -2,9 +2,6 @@
 #include "core/config.h"
 #include "core/utils.h"
 #include "world/collision.h"
-#include "config.h"
-#include "utils.h"
-#include "collision.h"
 #include "data/weapons.h"
 #include "raymath.h"
 #include <math.h>
@@ -59,4 +56,5 @@ void PlayerUpdate(Player* p, const InputState* in, float dt) {
     if (p->attackCd > 0) p->attackCd -= dt;
     if (p->swingTime > 0) p->swingTime -= dt;
     if (p->iframes > 0) p->iframes -= dt;
+	if (p->hp < 0) p->hp = 0;
 }

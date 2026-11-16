@@ -51,7 +51,7 @@ void WorldInit(World* w) {
     w->currentRoom = 0;
 }
 
-int WorldRoomAt(World* w, Vector2 p) {
+int WorldRoomAt(const World* w, Vector2 p) {
     for (int i = 0; i < w->roomCount; i++)
         if (CheckCollisionPointRec(p, w->rooms[i].bounds)) return i;
     return -1;

@@ -4,5 +4,5 @@
 
 void  WorldInit(World* w);
 void  WorldUnload(World* w);
-int   WorldRoomAt(World* w, Vector2 p);
+int   WorldRoomAt(const World* w, Vector2 p);
 void  WorldUpdateRoom(World* w, Vector2 playerPos, float dt);

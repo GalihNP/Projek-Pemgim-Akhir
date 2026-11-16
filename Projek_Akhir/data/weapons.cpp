@@ -3,7 +3,7 @@
 
 // 1. Tambahkan 'const' di sini agar cocok dengan weapons.h
 const Weapon WEAPONS[] = {
-    { "Dagger",      70.0f,  100.0f * DEG2RAD, 12.0f, 0.22f,  80.0f, SKYBLUE },
+    { "Dagger",      50.0f,  10.0f * DEG2RAD, 12.0f, 0.12f,  80.0f, SKYBLUE },
     { "Sword",      110.0f,   90.0f * DEG2RAD, 25.0f, 0.42f, 180.0f, RAYWHITE },
     { "Spear",      170.0f,   50.0f * DEG2RAD, 22.0f, 0.55f, 140.0f, GOLD },
     { "Greatsword", 140.0f,  140.0f * DEG2RAD, 45.0f, 0.85f, 320.0f, ORANGE },
