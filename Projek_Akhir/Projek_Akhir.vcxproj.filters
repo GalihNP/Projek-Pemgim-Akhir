@@ -45,6 +45,18 @@
     <ClCompile Include="systems\save.cpp">
       <Filter>Source Files\systems</Filter>
     </ClCompile>
+    <ClCompile Include="systems\display.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\menu.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\save_menu.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\ui.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
     <ClCompile Include="entities\enemies.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
@@ -99,6 +111,18 @@
       <Filter>Source Files\systems</Filter>
     </ClInclude>
     <ClInclude Include="systems\save.h">
+      <Filter>Source Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\display.h">
+      <Filter>Source Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\menu.h">
+      <Filter>Source Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\save_menu.h">
+      <Filter>Source Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\ui.h">
       <Filter>Source Files\systems</Filter>
     </ClInclude>
     <ClInclude Include="entities\npc.h">

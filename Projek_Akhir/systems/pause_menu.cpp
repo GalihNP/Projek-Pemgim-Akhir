@@ -1,19 +1,19 @@
 // systems/pause_menu.cpp
-// Menu jeda yang dibuka dengan ESC: Resume, Save, Quit.
+// Menu jeda yang dibuka dengan ESC: Resume, Save, Controls, Main Menu, Quit.
 #include "pause_menu.h"
 #include "core/config.h"
 #include "raymath.h"
 #include <math.h>
 
-static const char* BUTTON_LABELS[] = { "Resume", "Save", "Quit" };
-static const PauseAction BUTTON_ACTIONS[] = { PAUSE_RESUME, PAUSE_SAVE, PAUSE_QUIT };
-static const int BUTTON_COUNT = 3;
+static const char* BUTTON_LABELS[] = { "Resume", "Save", "Controls", "Main Menu", "Quit" };
+static const PauseAction BUTTON_ACTIONS[] = { PAUSE_RESUME, PAUSE_SAVE, PAUSE_CONTROLS, PAUSE_MAIN_MENU, PAUSE_QUIT };
+static const int BUTTON_COUNT = 5;
 
 static const float PANEL_W = 380.0f;
-static const float PANEL_H = 340.0f;
+static const float PANEL_H = 470.0f;
 static const float BTN_W = 260.0f;
 static const float BTN_H = 54.0f;
-static const float BTN_GAP = 16.0f;
+static const float BTN_GAP = 14.0f;
 
 static Rectangle PanelRect(void)
 {
@@ -72,7 +72,7 @@ void PauseMenuDraw(const PauseMenu* m)
     for (int i = 0; i < BUTTON_COUNT; i++) {
         Rectangle b = ButtonRect(i);
         bool sel = (i == m->selected);
-        bool isQuit = (BUTTON_ACTIONS[i] == PAUSE_QUIT);
+        bool isQuit = (BUTTON_ACTIONS[i] == PAUSE_QUIT || BUTTON_ACTIONS[i] == PAUSE_MAIN_MENU);
 
         Color fill = sel ? (isQuit ? Color{ 150, 45, 45, 255 } : Color{ 70, 90, 150, 255 }) : Color{ 45, 45, 62, 255 };
         Color edge = sel ? Color{ 240, 210, 120, 255 } : Color{ 90, 90, 115, 255 };

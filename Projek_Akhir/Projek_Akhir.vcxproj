@@ -169,6 +169,10 @@
     <ClCompile Include="systems\pause_menu.cpp" />
     <ClCompile Include="systems\render.cpp" />
     <ClCompile Include="systems\save.cpp" />
+    <ClCompile Include="systems\display.cpp" />
+    <ClCompile Include="systems\menu.cpp" />
+    <ClCompile Include="systems\save_menu.cpp" />
+    <ClCompile Include="systems\ui.cpp" />
     <ClCompile Include="world\collision.cpp" />
     <ClCompile Include="world\world.cpp" />
     <ClCompile Include="world\background.cpp" />
@@ -188,6 +192,10 @@
     <ClInclude Include="systems\pause_menu.h" />
     <ClInclude Include="systems\render.h" />
     <ClInclude Include="systems\save.h" />
+    <ClInclude Include="systems\display.h" />
+    <ClInclude Include="systems\menu.h" />
+    <ClInclude Include="systems\save_menu.h" />
+    <ClInclude Include="systems\ui.h" />
     <ClInclude Include="world\collision.h" />
     <ClInclude Include="world\world.h" />
     <ClInclude Include="world\background.h" />

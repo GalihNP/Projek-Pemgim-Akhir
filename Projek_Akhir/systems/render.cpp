@@ -9,8 +9,8 @@
 #include "raymath.h"
 #include <math.h>
 
+// Dipanggil di antara DisplayBeginFrame() / DisplayEndFrame() (lihat systems/display.h).
 void RenderGame(const GameState* s) {
-    BeginDrawing();
     ClearBackground(Color{ 24, 24, 32, 255 });
 
     BeginMode2D(s->cam);
@@ -103,8 +103,6 @@ void RenderGame(const GameState* s) {
         DrawText(rn, SCREEN_W / 2 - MeasureText(rn, sz) / 2, 40, sz, c);
     }
 
-    DrawText("WASD move | J/LMB attack | 1-4 weapon | E bicara | ESC menu", 10, SCREEN_H - 24, 16, LIGHTGRAY);
-
     if (s->player.hp <= 0) {
         DrawText("DEAD", SCREEN_W / 2 - 50, SCREEN_H / 2 - 20, 40, RED);
     }
@@ -126,10 +124,8 @@ void RenderGame(const GameState* s) {
         int fs = 20;
         int tw = MeasureText(s->toast, fs);
         int tx = SCREEN_W / 2 - tw / 2;
-        int ty = (s->mode == MODE_PAUSE) ? SCREEN_H / 2 + 200 : 100;
+        int ty = (s->mode == MODE_PAUSE) ? SCREEN_H / 2 + 250 : 100;   // di bawah panel pause
         DrawRectangle(tx - 14, ty - 8, tw + 28, fs + 16, Fade(Color{ 20, 20, 30, 255 }, 0.85f * a));
         DrawText(s->toast, tx, ty, fs, Fade(Color{ 240, 210, 120, 255 }, a));
     }
-
-    EndDrawing();
 }

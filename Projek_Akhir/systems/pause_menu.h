@@ -5,7 +5,9 @@
 typedef enum {
     PAUSE_NONE = 0,
     PAUSE_RESUME,
-    PAUSE_SAVE,
+    PAUSE_SAVE,          // buka layar pilih slot save
+    PAUSE_CONTROLS,      // buka petunjuk tombol
+    PAUSE_MAIN_MENU,     // kembali ke main menu (progres yang belum disimpan hilang)
     PAUSE_QUIT
 } PauseAction;
 

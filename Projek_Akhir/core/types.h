@@ -54,13 +54,15 @@ typedef struct {
 } DialogueState;
 
 typedef struct {
-    int selected;             // 0 = Resume, 1 = Save, 2 = Quit
+    int selected;             // 0 = Resume, 1 = Save, 2 = Controls, 3 = Main Menu, 4 = Quit
 } PauseMenu;
 
 typedef enum {
     MODE_PLAY = 0,
     MODE_DIALOGUE,
-    MODE_PAUSE
+    MODE_PAUSE,
+    MODE_SAVE_SLOTS,          // dari pause -> Save: pilih slot tujuan
+    MODE_CONTROLS             // dari pause -> Controls: petunjuk tombol
 } GameMode;
 
 typedef struct {
@@ -89,4 +91,7 @@ typedef struct {
     char     toast[64];        // pesan singkat di layar ("Game tersimpan", dst.)
     float    toastTimer;
     bool     quitRequested;
+
+    int      activeSlot;       // slot save yang sedang dimainkan (0..SAVE_SLOT_COUNT-1)
+    float    playTime;         // total waktu bermain (detik), ikut disimpan
 } GameState;

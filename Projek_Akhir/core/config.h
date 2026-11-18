@@ -37,4 +37,9 @@
 #define ENEMY_SPAWN_MIN_DIST  320.0f // jarak minimal spawn dari player
 
 // --- Save game ---
-#define SAVE_FILE_PATH  "savegame.dat"
+#define SAVE_SLOT_COUNT     5
+#define SAVE_SLOT_PATH_FMT  "save_slot%d.dat"   // %d = nomor slot 1..5
+#define SAVE_FILE_PATH      "savegame.dat"      // format lama (1 file); otomatis dipindah ke slot 1
+
+// --- Pengaturan tampilan ---
+#define SETTINGS_FILE_PATH  "settings.cfg"

@@ -30,6 +30,7 @@
 #include "background.h"
 #include "collision.h"
 #include "core/config.h"
+#include "systems/display.h"
 #include "raylib.h"
 #include "raymath.h"
 
@@ -1472,10 +1473,10 @@ bool BackgroundInit(const World* w, Vector2 playerSpawn)
     s_sprites.clear(); s_decor.clear();
 
     // layar "memuat" (generator butuh beberapa detik pada build Debug)
-    BeginDrawing();
+    DisplayBeginFrame();
     ClearBackground(Color{ 24, 24, 32, 255 });
     DrawText("Membangun dunia Arunika...", SCREEN_W / 2 - MeasureText("Membangun dunia Arunika...", 28) / 2, SCREEN_H / 2 - 14, 28, RAYWHITE);
-    EndDrawing();
+    DisplayEndFrame();
 
     string tilesetPath = FindAsset("tileset.png");
     if (tilesetPath.empty())

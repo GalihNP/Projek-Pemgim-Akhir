@@ -1,4 +1,5 @@
 #include "intro.h"
+#include "systems/display.h"
 
 bool RunIntroDialogue() {
     std::vector<DialogueData> dialogues = {
@@ -22,7 +23,7 @@ bool RunIntroDialogue() {
 
         const DialogueData& current = dialogues[currentDialogue];
 
-        BeginDrawing();
+        DisplayBeginFrame();
         ClearBackground(RAYWHITE); // Background putih bersih
 
         Color colorA = (current.speakerId == 'A') ? Color{ 20, 20, 20, 255 } : Color{ 160, 160, 160, 255 };
@@ -46,7 +47,7 @@ bool RunIntroDialogue() {
         DrawTextEx(font, current.text.c_str(), Vector2{ 80.f, 455.f }, 20.f, 1.f, DARKGRAY);
         DrawText("[ Klik Kiri untuk Lanjut ]", 80, 525, 12, GRAY);
 
-        EndDrawing();
+        DisplayEndFrame();
     }
 
     UnloadFont(font);
