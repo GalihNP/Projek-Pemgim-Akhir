@@ -23,7 +23,8 @@
 #define CAM_TRANS_LERP  3.5f
 #define CAM_LOOKAHEAD   50.0f
 
-#define SWING_DURATION  0.18f
+#define SWING_DURATION  0.18f   // fallback; durasi asli dari data/animations.cpp
+#define SHOT_FX_DURATION 0.10f  // lama jejak peluru pistol tampil
 
 // --- NPC & dialog ---
 #define MAX_NPCS            16

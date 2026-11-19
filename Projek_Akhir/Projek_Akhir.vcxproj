@@ -158,6 +158,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="data\weapons.cpp" />
+    <ClCompile Include="data\animations.cpp" />
     <ClCompile Include="entities\combat.cpp" />
     <ClCompile Include="entities\enemies.cpp" />
     <ClCompile Include="entities\npc.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="core\types.h" />
     <ClInclude Include="core\utils.h" />
     <ClInclude Include="data\weapons.h" />
+    <ClInclude Include="data\animations.h" />
     <ClInclude Include="entities\combat.h" />
     <ClInclude Include="entities\enemy.h" />
     <ClInclude Include="entities\npc.h" />

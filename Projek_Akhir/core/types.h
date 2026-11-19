@@ -26,6 +26,15 @@ typedef struct {
     int     skill;            // <--- TAMBAHKAN INI
     float   attackCd, swingTime, iframes;
     bool    swingHitDone;
+
+    // --- Animasi serangan & gerak (lihat data/animations.h) ---
+    float   swingDuration;    // total durasi animasi serangan yang sedang berjalan
+    float   hitTime;          // detik sejak serangan dimulai saat damage diberikan
+    int     attackWeapon;     // senjata yang dipakai serangan aktif (dikunci saat mulai)
+    Vector2 attackDir;        // arah serangan (dikunci saat mulai, sinkron dgn visual)
+    float   shotFx;           // > 0 = efek jejak peluru pistol sedang tampil
+    bool    moving;           // true = sedang berjalan (animasi jalan)
+    float   walkTime;         // akumulasi waktu animasi jalan
 } Player;
 
 typedef struct {

@@ -15,14 +15,16 @@ bool InArc(Vector2 origin, Vector2 dir, float range, float arc,
 }
 
 void DoAttack(Player* p, Enemy* enemies, int enemyCount) {
-    if (p->weaponIndex < 0 || p->weaponIndex >= WEAPON_COUNT) return;
-    const Weapon* w = &WEAPONS[p->weaponIndex];
+    // Pakai senjata & arah yang dikunci saat animasi serangan dimulai, sehingga
+    // damage selalu cocok dengan animasi yang sedang tampil.
+    if (p->attackWeapon < 0 || p->attackWeapon >= WEAPON_COUNT) return;
+    const Weapon* w = &WEAPONS[p->attackWeapon];
     float mul = SkillDamageMul(p->skill);
 
     for (int i = 0; i < enemyCount; i++) {
         Enemy* e = &enemies[i];
         if (!e->alive || e->spawnTimer > 0) continue;   // musuh yang sedang muncul kebal
-        if (!InArc(p->position, p->facing, w->range, w->arc, e->position, e->radius))
+        if (!InArc(p->position, p->attackDir, w->range, w->arc, e->position, e->radius))
             continue;
 
         Vector2 to = Vector2Subtract(e->position, p->position);

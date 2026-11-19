@@ -15,6 +15,7 @@
 #include "entities/enemy.h"
 #include "entities/npc.h"
 #include "entities/combat.h"
+#include "data/animations.h"
 #include "intro.h"
 #include <stdio.h>
 #include <string.h>
@@ -64,9 +65,16 @@ static void UpdateGameplay(GameState* s, const InputState* input, float dt) {
     PlayerUpdate(&s->player, input, dt);
     NpcResolveCircle(s->npcs, s->npcCount, &s->player.position, PLAYER_RADIUS);
 
-    if (!s->player.swingHitDone && s->player.swingTime > 0 && s->player.swingTime <= SWING_DURATION * 0.5f) {
-        DoAttack(&s->player, s->enemies, MAX_ENEMIES);
-        s->player.swingHitDone = true;
+    // Damage diberikan tepat saat frame "hit" animasi serangan tampil
+    // (tebasan penuh pedang, muzzle flash pistol, terjangan keris).
+    Player* pl = &s->player;
+    if (!pl->swingHitDone && (pl->swingDuration - pl->swingTime) >= pl->hitTime) {
+        DoAttack(pl, s->enemies, MAX_ENEMIES);
+        pl->swingHitDone = true;
+        // Senjata api (punya titik moncong) -> tampilkan jejak peluru
+        if (pl->attackWeapon >= 0 && pl->attackWeapon < WEAPON_ANIM_COUNT &&
+            WEAPON_ANIMS[pl->attackWeapon].muzzle.x >= 0.0f)
+            pl->shotFx = SHOT_FX_DURATION;
     }
 
     EnemyUpdateAll(s->enemies, MAX_ENEMIES, &s->player, &s->world, dt);
@@ -93,6 +101,7 @@ int main(void) {
 
     // Canvas 1280x720 + mode layar/resolusi dari settings.cfg
     DisplayInit();
+    RenderInit(); // Memuat sprite karakter dari folder Asset
 
     // Dunia dibangun sekali (butuh beberapa detik, ada layar "memuat")
     static GameState state = {};
@@ -297,6 +306,7 @@ int main(void) {
         DisplayEndFrame();
     }
 
+    RenderUnload();
     DisplayShutdown();
     BackgroundUnload();
     WorldUnload(&state.world);

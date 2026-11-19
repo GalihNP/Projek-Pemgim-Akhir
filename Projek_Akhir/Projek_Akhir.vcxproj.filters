@@ -36,6 +36,9 @@
     <ClCompile Include="data\weapons.cpp">
       <Filter>Source Files\data</Filter>
     </ClCompile>
+    <ClCompile Include="data\animations.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
     <ClCompile Include="entities\npc.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
@@ -102,6 +105,9 @@
       <Filter>Source Files\core</Filter>
     </ClInclude>
     <ClInclude Include="data\weapons.h">
+      <Filter>Source Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="data\animations.h">
       <Filter>Source Files\data</Filter>
     </ClInclude>
     <ClInclude Include="entities\enemy.h">
