@@ -10,6 +10,40 @@
 #include <string>
 #include <vector>
 
+// Sprite NPC dipotong dari area transparan pada aset PNG.
+static Texture2D npcSprites[3] = {};
+static bool npcSpritesLoaded = false;
+static const Rectangle NPC_SPRITE_BOUNDS[3] = {
+    { 131, 1210, 99, 201 },  // NPC 1
+    { 479, 957, 81, 204 },   // NPC 2
+    { 138, 942, 106, 215 }   // NPC 3
+};
+
+static void NpcAssetsLoad(void)
+{
+    if (npcSpritesLoaded) return;
+    const char* paths[3] = { "../Asset/NPC 1.png", "../Asset/NPC 2.png", "../Asset/NPC 3.png" };
+    for (int i = 0; i < 3; ++i) {
+        Image img = LoadImage(paths[i]);
+        if (img.data != nullptr) {
+            ImageCrop(&img, NPC_SPRITE_BOUNDS[i]);
+            npcSprites[i] = LoadTextureFromImage(img);
+            UnloadImage(img);
+            if (npcSprites[i].id != 0) SetTextureFilter(npcSprites[i], TEXTURE_FILTER_POINT);
+        }
+    }
+    npcSpritesLoaded = true;
+}
+
+void NpcAssetsUnload(void)
+{
+    for (int i = 0; i < 3; ++i) {
+        if (npcSprites[i].id != 0) UnloadTexture(npcSprites[i]);
+        npcSprites[i] = Texture2D{};
+    }
+    npcSpritesLoaded = false;
+}
+
 // -----------------------------------------------------
 // Data NPC. Ubah / tambah di sini.
 // offset = posisi yang diinginkan relatif ke pusat ruangan. Jika tempat itu
@@ -120,6 +154,7 @@ void NpcInitAll(Npc* npcs, int* outCount, const World* w, Vector2 playerSpawn)
             n->lineCount++;
         }
         n->talked = false;
+        n->spriteIndex = count % 3;
         count++;
     }
     *outCount = count;
@@ -155,13 +190,10 @@ int NpcFindTalkable(const Npc* npcs, int count, Vector2 playerPos)
 // -----------------------------------------------------
 // Render NPC (dunia)
 // -----------------------------------------------------
-static Color Darker(Color c, float f)
-{
-    return Color{ (unsigned char)(c.r * f), (unsigned char)(c.g * f), (unsigned char)(c.b * f), c.a };
-}
 
 void NpcDrawAll(const Npc* npcs, int count, int talkableIndex, int speakingIndex)
 {
+    NpcAssetsLoad();
     float time = (float)GetTime();
     for (int i = 0; i < count; i++) {
         const Npc* n = &npcs[i];
@@ -171,16 +203,27 @@ void NpcDrawAll(const Npc* npcs, int count, int talkableIndex, int speakingIndex
         // bayangan
         DrawEllipse((int)n->position.x, (int)(n->position.y + n->radius - 2), n->radius * 0.95f, n->radius * 0.4f, Color{ 0, 0, 0, 70 });
 
-        // badan + kepala
-        DrawCircleV(body, n->radius, Darker(n->color, 0.55f));
-        DrawCircleV(body, n->radius - 2.5f, n->color);
-        DrawCircleV(Vector2{ body.x - n->radius * 0.3f, body.y - n->radius * 0.35f }, n->radius * 0.28f, Fade(WHITE, 0.35f));
+        // Gambar karakter dari aset NPC 1/2/3, dengan titik pijak di posisi NPC.
+        const int spriteId = (n->spriteIndex >= 0 && n->spriteIndex < 3) ? n->spriteIndex : 0;
+        Texture2D sprite = npcSprites[spriteId];
+        if (sprite.id != 0) {
+            const float scale = 0.43f;
+            Rectangle src = { 0, 0, (float)sprite.width, (float)sprite.height };
+            Rectangle dst = { n->position.x, body.y + n->radius, sprite.width * scale, sprite.height * scale };
+            Vector2 origin = { dst.width * 0.5f, dst.height };
+            DrawTexturePro(sprite, src, dst, origin, 0.0f, WHITE);
+        }
+        else {
+            // Fallback jika file aset tidak ditemukan.
+            DrawCircleV(body, n->radius, n->color);
+        }
 
         // nama
         int fs = 14;
         int tw = MeasureText(n->name, fs);
         int tx = (int)(n->position.x - tw / 2);
-        int ty = (int)(n->position.y - n->radius - 24);
+        int spriteHeight = npcSprites[spriteId].id != 0 ? (int)(npcSprites[spriteId].height * 0.43f) : (int)(n->radius * 2.0f);
+        int ty = (int)(n->position.y + n->radius - spriteHeight - 26);
         DrawRectangle(tx - 4, ty - 2, tw + 8, fs + 4, Color{ 0, 0, 0, 140 });
         DrawText(n->name, tx, ty, fs, RAYWHITE);
 
@@ -274,11 +317,18 @@ void DialogueDraw(const DialogueState* d, const Npc* npc)
     DrawRectangleRounded(box, 0.08f, 8, Color{ 18, 18, 28, 235 });
     DrawRectangleRoundedLinesEx(box, 0.08f, 8, 2.0f, Color{ 200, 170, 90, 255 });
 
-    // potret
+    // Potret dialog menggunakan aset NPC yang sama.
+    NpcAssetsLoad();
     Vector2 portrait = { box.x + 70.0f, box.y + boxH * 0.5f };
-    DrawCircleV(portrait, 44.0f, Darker(npc->color, 0.5f));
-    DrawCircleV(portrait, 40.0f, npc->color);
-    DrawCircleV(Vector2{ portrait.x - 12.0f, portrait.y - 14.0f }, 11.0f, Fade(WHITE, 0.35f));
+    int spriteId = (npc->spriteIndex >= 0 && npc->spriteIndex < 3) ? npc->spriteIndex : 0;
+    Texture2D portraitSprite = npcSprites[spriteId];
+    if (portraitSprite.id != 0) {
+        float scale = 0.43f;
+        Rectangle src = { 0, 0, (float)portraitSprite.width, (float)portraitSprite.height };
+        Rectangle dst = { portrait.x, portrait.y + 43.0f, portraitSprite.width * scale, portraitSprite.height * scale };
+        DrawTexturePro(portraitSprite, src, dst, Vector2{ dst.width * 0.5f, dst.height }, 0.0f, WHITE);
+    }
+    else DrawCircleV(portrait, 40.0f, npc->color);
 
     // nama
     float textX = box.x + 140.0f;

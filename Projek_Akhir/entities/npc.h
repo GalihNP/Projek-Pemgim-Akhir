@@ -5,6 +5,7 @@
 // Panggil SETELAH WorldInit() + BackgroundInit() (posisi NPC dicari di tempat
 // yang tidak menabrak dinding / objek lingkungan / air).
 void NpcInitAll(Npc* npcs, int* outCount, const World* w, Vector2 playerSpawn);
+void NpcAssetsUnload(void);
 
 // Dorong lingkaran (player / musuh) keluar dari badan NPC.
 void NpcResolveCircle(const Npc* npcs, int count, Vector2* pos, float radius);

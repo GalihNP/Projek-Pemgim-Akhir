@@ -306,6 +306,7 @@ int main(void) {
         DisplayEndFrame();
     }
 
+    NpcAssetsUnload();
     RenderUnload();
     DisplayShutdown();
     BackgroundUnload();

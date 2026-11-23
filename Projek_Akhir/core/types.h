@@ -54,6 +54,7 @@ typedef struct {
     const char* lines[NPC_MAX_LINES];
     int         lineCount;
     bool        talked;       // sudah pernah diajak bicara (untuk tanda "!")
+    int         spriteIndex;  // 0..2: NPC 1, NPC 2, NPC 3
 } Npc;
 
 typedef struct {
